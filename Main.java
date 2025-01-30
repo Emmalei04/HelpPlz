@@ -2,24 +2,37 @@
 import java.util.Scanner;
 
 public class Main {
-    static String[][] january = new String[31][];
-    static String[][] february = new String[28][];
-    static String[][] march = new String[31][];
-    static String[][] april = new String[30][];
-    static String[][] may = new String[31][];
-    static String[][] june = new String[30][];
-    static String[][] july = new String[31][];
-    static String[][] august = new String[31][];
-    static String[][] september = new String[30][];
-    static String[][] november = new String[30][];
-    static String[][] december = new String[31][];
+    static String[][] january = new String[31][1];
+    static String[][] february = new String[28][1];
+    static String[][] march = new String[31][1];
+    static String[][] april = new String[30][1];
+    static String[][] may = new String[31][1];
+    static String[][] june = new String[30][1];
+    static String[][] july = new String[31][1];
+    static String[][] august = new String[31][1];
+    static String[][] september = new String[30][1];
+    static String[][] november = new String[30][1];
+    static String[][] december = new String[31][1];
+
+    public static void addToArr(String[][] ogArr, int row, int column){
+        if(column >= ogArr[row].length){
+            String[] newArr = new String[column + 1];
+            for(int i = 0; i < ogArr[row].length; i++){
+                newArr[i] = ogArr[row][i];
+            }
+            ogArr[row] = newArr;
+        } else {
+
+        }
+
+
+    }
 
     public static String addEvent(String newEvent){
         Scanner scnr = new Scanner(System.in);
         String month;
         int day;
         int i = 0;
-        int j = 0;
         char nextChoice;
         String testStringWorking = "This method is working";
         String testStringFailing = "This method is failing";
@@ -30,20 +43,8 @@ public class Main {
         if(month.equals("JANUARY")){
             System.out.println("What day would you like to add your event to?");
             day = scnr.nextInt();
-
-            for(i = 0; i < january.length; i++){
-                if(january[day - 1][i] == null){
-                    january[day][i] = newEvent;
-                    System.out.println("Event Added");
-                    System.out.println("What would you like to do next?");
-                    nextChoice = scnr.next().charAt(0);
-                    menu(nextChoice);
-                    break;
-
-                }
-            }
-
-
+            
+            addToArr(january, day-1, );
             return testStringWorking;
         } else if(month.equals("FEBRUARY")){
             return testStringWorking;
@@ -270,3 +271,5 @@ public class Main {
         menu(userRes);
     }
 }
+
+//Help from: Amy Gonzalez, & Aharon Heinemann
